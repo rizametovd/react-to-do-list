@@ -1,0 +1,26 @@
+.container {
+  display: inline-block;
+  padding: 10px;
+}
+
+.button {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.15px;
+  color: #767676;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.button::before {
+  content: url('../../images/plus-icon.svg');
+  margin-right: 10px;
+}
+
+.button:hover {
+  transition: opacity 0.2s linear;
+  opacity: 0.8;
+}

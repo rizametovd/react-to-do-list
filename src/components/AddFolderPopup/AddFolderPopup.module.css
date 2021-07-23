@@ -1,0 +1,136 @@
+.container {
+  visibility: hidden;
+  opacity: 0;
+  width: 235px;
+  padding: 18px;
+  box-sizing: border-box;
+  border-radius: 18px;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.05);
+  position: relative;
+  background-color: #ffffff;
+  transition: visibility 0s, opacity 0.2s linear;
+}
+
+.popupActive {
+  visibility: visible;
+  display: flex;
+  z-index: 1;
+  opacity: 1;
+}
+
+.closeButton {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-image: url('../../images/close-icon.svg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  border: none;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  padding: 10px 15px;
+  border: 1px solid #efefef;
+  border-radius: 4px;
+  outline: none;
+}
+
+.input:focus {
+  box-shadow: 0 0 8px rgba(77, 213, 153, 0.4);
+}
+
+.input::placeholder {
+  color: #b4b4b4;
+  letter-spacing: 0.15px;
+}
+
+.validationError {
+  font-weight: 400;
+  font-size: 12px;
+  padding: 5px 0;
+  color: #ff6464;
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+  list-style: none;
+  padding: 0;
+}
+
+.listItem {
+  display: flex;
+}
+
+.colorButton {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.colorButton:hover {
+  transition: opacity 0.2s linear;
+  opacity: 0.8;
+}
+
+.colorGreen {
+  background-color: #42b883;
+}
+
+.colorBlue {
+  background-color: #64c4ed;
+}
+
+.colorPink {
+  background-color: #ffbbcc;
+}
+
+.colorLightGreen {
+  background-color: #b6e6bd;
+}
+
+.colorGray {
+  background-color: tomato;
+}
+
+.colorPurple {
+  background-color: #c355f5;
+}
+
+.colorRed {
+  background-color: #ff6464;
+}
+
+.colorBlack {
+  background-color: #09011a;
+}
+
+.addColorButton {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.15px;
+  color: #ffffff;
+  border-radius: 4px;
+  border: none;
+  background-color: #4dd599;
+  cursor: pointer;
+  padding: 10px 0;
+}
+
+.addColorButton:hover {
+  transition: opacity 0.3s linear;
+  opacity: 0.7;
+}
