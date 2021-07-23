@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/react-to-do-list/static/css/main.dd104e19.chunk.css",
+    "main.js": "/react-to-do-list/static/js/main.10551a70.chunk.js",
+    "main.js.map": "/react-to-do-list/static/js/main.10551a70.chunk.js.map",
+    "runtime-main.js": "/react-to-do-list/static/js/runtime-main.b289a387.js",
+    "runtime-main.js.map": "/react-to-do-list/static/js/runtime-main.b289a387.js.map",
+    "static/js/2.d0c60a51.chunk.js": "/react-to-do-list/static/js/2.d0c60a51.chunk.js",
+    "static/js/2.d0c60a51.chunk.js.map": "/react-to-do-list/static/js/2.d0c60a51.chunk.js.map",
+    "index.html": "/react-to-do-list/index.html",
+    "static/css/main.dd104e19.chunk.css.map": "/react-to-do-list/static/css/main.dd104e19.chunk.css.map",
+    "static/js/2.d0c60a51.chunk.js.LICENSE.txt": "/react-to-do-list/static/js/2.d0c60a51.chunk.js.LICENSE.txt",
+    "static/media/TaskContainer.module.css": "/react-to-do-list/static/media/edit-icon.d48cb023.svg",
+    "static/media/Sidebar.module.css": "/react-to-do-list/static/media/all-tasks-icon.a862c15f.svg",
+    "static/media/AddFolderPopup.module.css": "/react-to-do-list/static/media/close-icon.0e52aac8.svg",
+    "static/media/Task.module.css": "/react-to-do-list/static/media/task-done-icon.f712a390.svg",
+    "static/media/NewFolderBtn.module.css": "/react-to-do-list/static/media/plus-icon.bb82cf25.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b289a387.js",
+    "static/js/2.d0c60a51.chunk.js",
+    "static/css/main.dd104e19.chunk.css",
+    "static/js/main.10551a70.chunk.js"
+  ]
+}
