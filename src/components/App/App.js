@@ -1,62 +1,72 @@
 import { useState } from 'react';
 import '../../vendor/normalize.css';
+import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
 import Main from '../Main/Main';
 import Sidebar from '../Sidebar/Sidebar';
 import appStyles from './App.module.css';
 
 function App() {
-  const [isAddFolderPopupOpen, setIsAddFolderPopupOpen] = useState(false);
-  const [isCreateTask, setIsCreateTask] = useState(false);
-  const [isEditFolderNameOpen, setIsEditFolderNameOpen] = useState(false);
+  const [isCreateCategoryPopupOpen, setIsCreateCategoryPopupOpen] = useState(false);
+  const [isCreateTaskFormOpen, setIsCreateTaskFormOpen] = useState(false);
+  const [isCategoryNameFormOpen, setIsCategoryNameFormOpen] = useState(false);
+  const [isHamburgerMenuOpen, setIsHamburgerMenuOpen] = useState(false);
 
-  function openEditFolderNameForm() {
-    setIsEditFolderNameOpen(true);
+  function handleHamburgerMenu() {
+    setIsHamburgerMenuOpen((prevState) => !prevState);
   }
 
-  function saveEditFolderName() {
-    setIsEditFolderNameOpen(false);
+  function openCategoryNameForm() {
+    setIsCategoryNameFormOpen(true);
   }
 
-  function cancelEditFolderName() {
-    setIsEditFolderNameOpen(false);
+  function onSaveEditCategoryName() {
+    setIsCategoryNameFormOpen(false);
   }
 
-  function addNewTask() {
-    setIsCreateTask(true);
+  function onCancelEditCategoryName() {
+    setIsCategoryNameFormOpen(false);
+  }
+
+  function openCreateTaskForm() {
+    setIsCreateTaskFormOpen(true);
   }
 
   function createTask() {
-    setIsCreateTask(false);
+    setIsCreateTaskFormOpen(false);
   }
 
   function cancelCreateTask() {
-    setIsCreateTask(false);
+    setIsCreateTaskFormOpen(false);
   }
 
-  function openAddFolderPopup() {
-    setIsAddFolderPopupOpen(true);
+  function openCreateCategoryPopup() {
+    setIsCreateCategoryPopupOpen(true);
   }
 
   function closePopup() {
-    setIsAddFolderPopupOpen(false);
+    setIsCreateCategoryPopupOpen(false);
   }
 
   return (
     <div className={appStyles.page}>
+      <HamburgerMenu
+        handleHamburgerMenu={handleHamburgerMenu}
+        isHamburgerMenuOpen={isHamburgerMenuOpen}
+      />
       <Sidebar
-        isPopupOpen={isAddFolderPopupOpen}
-        onAddFolder={openAddFolderPopup}
-        onClose={closePopup}
+        isCreateCategoryPopupOpen={isCreateCategoryPopupOpen}
+        openCreateCategoryPopup={openCreateCategoryPopup}
+        closeCreateCategoryPopup={closePopup}
       />
       <Main
-        isCreateTask={isCreateTask}
-        onAddNewTask={addNewTask}
-        onCreateTask={createTask}
-        onCancelCreateTask={cancelCreateTask}
-        onEditFolderNameForm={openEditFolderNameForm}
-        isEditFolderNameOpen={isEditFolderNameOpen}
-        onSaveEditFolderName={saveEditFolderName}
-        onCancelEditFolderName={cancelEditFolderName}
+        isCreateTaskFormOpen={isCreateTaskFormOpen}
+        openCreateTaskForm={openCreateTaskForm}
+        createTask={createTask}
+        cancelCreateTask={cancelCreateTask}
+        openCategoryNameForm={openCategoryNameForm}
+        isCategoryNameFormOpen={isCategoryNameFormOpen}
+        onSaveEditCategoryName={onSaveEditCategoryName}
+        onCancelEditCategoryName={onCancelEditCategoryName}
       />
     </div>
   );

@@ -1,8 +1,12 @@
-.main {
+/* .main {
   width: calc(100% - 200px);
   display: flex;
   flex-direction: column;
   padding: 80px 50px;
+} */
+
+.main {
+  padding: 40px 20px;
 }
 
 .list {
@@ -21,4 +25,13 @@
   font-size: 32px;
   line-height: 39px;
   color: #c9d1d3;
+}
+
+@media screen and (min-width: 768px) {
+  .main {
+    width: calc(100% - 200px);
+    display: flex;
+    flex-direction: column;
+    padding: 40px 50px;
+  }
 }

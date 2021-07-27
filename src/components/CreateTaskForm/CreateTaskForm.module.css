@@ -1,0 +1,73 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid #efefef;
+  padding: 10px 15px;
+  border-radius: 4px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.input::placeholder {
+  color: #b4b4b4;
+  letter-spacing: 0.15px;
+}
+
+.input:focus {
+  box-shadow: 0 0 8px rgba(77, 213, 153, 0.4);
+}
+
+.validationError {
+  display: block;
+  font-weight: 400;
+  font-size: 12px;
+  padding: 10px 0;
+  color: #ff6464;
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 280px;
+  padding-top: 15px;
+}
+
+.saveButton {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.15px;
+  padding: 10px 25px;
+  background-color: #4dd599;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.saveButton:hover {
+  transition: opacity 0.2s linear;
+  opacity: 0.7;
+}
+
+.cancelButton {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.15px;
+  padding: 10px 25px;
+  background-color: #f4f6f8;
+  color: #9c9c9c;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cancelButton:hover {
+  transition: opacity 0.2s linear;
+  opacity: 0.7;
+}

@@ -1,24 +1,26 @@
 import sidebarStyles from './Sidebar.module.css';
-import AddFolderPopup from '../AddFolderPopup/AddFolderPopup';
-import NewFolderBtn from '../NewFolderBtn/NewFolderBtn';
-import TaskFolder from '../TaskFolder/TaskFolder';
+import CreateCategoryPopup from '../CreateCategoryPopup/CreateCategoryPopup';
+import CreateCategoryButton from '../CreateCategoryButton/CreateCategoryButton';
+import CategoryItem from '../CategoryItem/CategoryItem';
 
-
-function Sidebar({ isPopupOpen, onAddFolder, onClose }) {
+function Sidebar({ isCreateCategoryPopupOpen, openCreateCategoryPopup, closeCreateCategoryPopup }) {
   return (
     <div className={sidebarStyles.sidebar}>
       <h2 className={sidebarStyles.title}>Все задачи</h2>
 
       <ul className={sidebarStyles.list}>
-        <TaskFolder text={'Покупки'} taskColor={'green'} />
-        <TaskFolder text={'Фронтенд'} taskColor={'blue'} />
-        <TaskFolder text={'Фильмы'} taskColor={'pink'} />
-        <TaskFolder text={'Книги'} taskColor={'lightgreen'} />
-        <TaskFolder text={'Личное'} taskColor={'gray'} />
+        <CategoryItem text={'Покупки'} taskColor={'green'} />
+        <CategoryItem text={'Фронтенд'} taskColor={'blue'} />
+        <CategoryItem text={'Фильмы'} taskColor={'pink'} />
+        <CategoryItem text={'Книги'} taskColor={'lightgreen'} />
+        <CategoryItem text={'Личное'} taskColor={'gray'} />
       </ul>
 
-      <NewFolderBtn onAddFolder={onAddFolder} />
-      <AddFolderPopup isPopupOpen={isPopupOpen} onClose={onClose} />
+      <CreateCategoryButton openCreateCategoryPopup={openCreateCategoryPopup} />
+      <CreateCategoryPopup
+        isCreateCategoryPopupOpen={isCreateCategoryPopupOpen}
+        closeCreateCategoryPopup={closeCreateCategoryPopup}
+      />
     </div>
   );
 }
