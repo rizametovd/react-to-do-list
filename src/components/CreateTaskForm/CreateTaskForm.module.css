@@ -47,6 +47,7 @@
   border-radius: 4px;
   cursor: pointer;
   border: 2px solid transparent;
+  outline: none;
 }
 
 .saveButton:focus,
@@ -70,6 +71,7 @@
   border: 2px solid transparent;
   border-radius: 4px;
   cursor: pointer;
+  outline: none;
 }
 
 .cancelButton:hover {
