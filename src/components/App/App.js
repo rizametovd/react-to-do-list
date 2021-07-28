@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import '../../vendor/normalize.css';
-import CreateCategoryPopup from '../CreateCategoryPopup/CreateCategoryPopup';
 import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
 import Main from '../Main/Main';
 import Sidebar from '../Sidebar/Sidebar';
@@ -41,7 +40,6 @@ function App() {
   }
 
   function openCreateCategoryPopup() {
-    console.log('Клик')
     setIsCreateCategoryPopupOpen(true);
   }
 

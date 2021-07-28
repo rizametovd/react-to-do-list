@@ -30,6 +30,7 @@ function CategoryContainer({
               className={categoryContainerStyles.editButton}
               type='button'
               onClick={openCategoryNameForm}
+              aria-label='Изменить название категории'
             />
           </div>
         )}

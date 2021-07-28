@@ -8,7 +8,7 @@ function CategoryItem({ text, taskColor }) {
         <p className={categoryItemStyles.text}>{text}</p>
       </div>
 
-      <button className={categoryItemStyles.deleteCategoryButton}></button>
+      <button className={categoryItemStyles.deleteCategoryButton} aria-label='Удалить категорию'></button>
     </li>
   );
 }
