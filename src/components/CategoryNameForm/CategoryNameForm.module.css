@@ -30,12 +30,21 @@
   font-size: 14px;
   line-height: 17px;
   letter-spacing: 0.15px;
-  padding: 10px 25px;
+  padding: 10px 22px;
   background-color: #4dd599;
   color: #ffffff;
-  border: none;
+  border: 2px solid transparent;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.saveButton:focus, .cancelButton:focus {
+  border: 2px solid #ff6464;
+}
+
+.saveButton:hover {
+  transition: opacity 0.3s linear;
+  opacity: 0.7;
 }
 
 .cancelButton {
@@ -43,12 +52,26 @@
   font-size: 14px;
   line-height: 17px;
   letter-spacing: 0.15px;
-  padding: 10px 25px;
+  padding: 10px 22px;
   background-color: #f4f6f8;
   color: #9c9c9c;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.cancelButton:hover {
+  transition: opacity 0.3s linear;
+  opacity: 0.8;
+}
+
+.validationError {
+  display: block;
+  font-weight: 400;
+  font-size: 12px;
+  padding: 10px 0;
+  color: #ff6464;
 }
 
 @media screen and (min-width: 768px) {

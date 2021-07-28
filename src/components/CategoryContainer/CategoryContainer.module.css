@@ -10,7 +10,7 @@
   padding-bottom: 40px;
 }
 
-.folderName {
+.categoryName {
   display: flex;
   align-items: center;
 }
@@ -20,7 +20,7 @@
   align-items: center;
 }
 
-.folderTitle {
+.categoryTitle {
   font-family: 'Montserrat';
   font-weight: 700;
   font-size: 32px;
@@ -69,6 +69,11 @@
   height: 15px;
   border: none;
   cursor: pointer;
+  outline: none;
+}
+
+.editButton:focus {
+  background-image: url('../../images/edit-icon-focus.svg');
 }
 
 .editButton:hover {
@@ -89,16 +94,30 @@
   margin-left: 35px;
   color: #b4b4b4;
   background-color: transparent;
-  border: none;
   cursor: pointer;
-  padding: 0;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+
+.createTaskButton:focus {
+  color: #ff6464;
 }
 
 .createTaskButton::before {
-  content: url('../../images/add-new-task-icon.svg');
+  content: '';
+  background-image: url('../../images/add-new-task-icon.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left center;
+  width: 14px;
+  height: 14px;
   margin-right: 10px;
   display: inline-block;
-  vertical-align: middle;
+}
+
+.createTaskButton:focus::before {
+  background-image: url('../../images/add-new-task-icon-focus.svg');
 }
 
 .createTaskButton:hover {

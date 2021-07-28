@@ -8,7 +8,7 @@ function CategoryItem({ text, taskColor }) {
         <p className={categoryItemStyles.text}>{text}</p>
       </div>
 
-      <button className={categoryItemStyles.button}></button>
+      <button className={categoryItemStyles.deleteCategoryButton}></button>
     </li>
   );
 }

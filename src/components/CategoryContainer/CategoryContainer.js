@@ -19,9 +19,9 @@ function CategoryContainer({
     <div className={categoryContainerStyles.container}>
       <div className={categoryContainerStyles.titleContainer}>
         {!isCategoryNameFormOpen && (
-          <div className={categoryContainerStyles.folderName}>
+          <div className={categoryContainerStyles.categoryName}>
             <h2
-              className={`${categoryContainerStyles.folderTitle} ${categoryContainerStyles[titleColor]}`}
+              className={`${categoryContainerStyles.categoryTitle} ${categoryContainerStyles[titleColor]}`}
             >
               {title}
             </h2>
