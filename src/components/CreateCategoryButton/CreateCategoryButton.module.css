@@ -35,6 +35,10 @@
   color: #ff6464;
 }
 
+.button:active {
+  color: green;
+}
+
 .button:focus::before {
   background-image: url('../../images/add-new-task-icon-focus.svg');
 }

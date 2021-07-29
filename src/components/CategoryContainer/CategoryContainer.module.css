@@ -72,7 +72,7 @@
   outline: none;
 }
 
-.editButton:focus {
+.editButton:focus:not(:active) {
   background-image: url('../../images/edit-icon-focus.svg');
 }
 
@@ -100,7 +100,7 @@
   outline: none;
 }
 
-.createTaskButton:focus {
+.createTaskButton:focus:not(:active) {
   color: #ff6464;
 }
 
@@ -118,6 +118,10 @@
 
 .createTaskButton:focus::before {
   background-image: url('../../images/add-new-task-icon-focus.svg');
+}
+
+.createTaskButton:active::before {
+  background-image: url('../../images/add-new-task-icon.svg');
 }
 
 .createTaskButton:hover {

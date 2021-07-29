@@ -50,8 +50,8 @@
   outline: none;
 }
 
-.saveButton:focus,
-.cancelButton:focus {
+.saveButton:focus:not(:active),
+.cancelButton:focus:not(:active) {
   border: 2px solid #ff6464;
 }
 

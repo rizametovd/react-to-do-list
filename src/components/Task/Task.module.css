@@ -98,6 +98,6 @@
   display: block;
 }
 
-.deleteTaskButton:focus {
+.deleteTaskButton:focus:not(:active) {
   background-image: url('../../images/delete-icon-focus.svg');
 }
