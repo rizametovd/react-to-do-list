@@ -1,0 +1,55 @@
+.container {
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.button {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.15px;
+  color: #767676;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background-color: transparent;
+}
+
+.button::before {
+  content: '';
+  background-image: url('../../images/add-new-task-icon.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left center;
+  width: 14px;
+  height: 14px;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.button:focus {
+  color: #ff6464;
+}
+
+.button:active {
+  color: green;
+}
+
+.button:focus::before {
+  background-image: url('../../images/add-new-task-icon-focus.svg');
+}
+
+.button:hover {
+  transition: opacity 0.2s linear;
+  opacity: 0.8;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    border: none;
+  }
+}

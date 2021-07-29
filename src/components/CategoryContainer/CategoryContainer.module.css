@@ -1,0 +1,140 @@
+.container {
+  padding-bottom: 40px;
+}
+
+.titleContainer {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  border-bottom: 1px solid #f2f2f2;
+  padding-bottom: 40px;
+}
+
+.categoryName {
+  display: flex;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+}
+
+.categoryTitle {
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 39px;
+  margin: 0 15px 0 0;
+  user-select: none;
+}
+
+.green {
+  color: #42b883;
+}
+
+.blue {
+  color: #64c4ed;
+}
+
+.pink {
+  color: #ffbbcc;
+}
+
+.lightgreen {
+  color: #b6e6bd;
+}
+
+.gray {
+  color: #c9d1d3;
+}
+
+.purple {
+  color: #c355f5;
+}
+
+.red {
+  color: #ff6464;
+}
+
+.black {
+  color: #09011a;
+}
+
+.editButton {
+  background-image: url('../../images/edit-icon.svg');
+  background-repeat: no-repeat;
+  background-color: transparent;
+  width: 15px;
+  height: 15px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.editButton:focus:not(:active) {
+  background-image: url('../../images/edit-icon-focus.svg');
+}
+
+.editButton:hover {
+  transition: opacity 0.3s linear;
+  opacity: 0.7;
+}
+
+.list {
+  list-style: none;
+  padding: 20px 0;
+}
+
+.createTaskButton {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.15px;
+  margin-left: 35px;
+  color: #b4b4b4;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+
+.createTaskButton:focus:not(:active) {
+  color: #ff6464;
+}
+
+.createTaskButton::before {
+  content: '';
+  background-image: url('../../images/add-new-task-icon.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left center;
+  width: 14px;
+  height: 14px;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.createTaskButton:focus::before {
+  background-image: url('../../images/add-new-task-icon-focus.svg');
+}
+
+.createTaskButton:active::before {
+  background-image: url('../../images/add-new-task-icon.svg');
+}
+
+.createTaskButton:hover {
+  transition: opacity 0.2s linear;
+  opacity: 0.8;
+}
+
+.createTaskButtonHidden {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .titleContainer {
+    padding-bottom: 20px;
+  }
+}

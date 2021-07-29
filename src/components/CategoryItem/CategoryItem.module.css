@@ -1,0 +1,91 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 160px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.itemContainer {
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+
+.task {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.green {
+  background-color: #42b883;
+}
+
+.blue {
+  background-color: #64c4ed;
+}
+
+.pink {
+  background-color: #ffbbcc;
+}
+
+.lightgreen {
+  background-color: #b6e6bd;
+}
+
+.gray {
+  background-color: #c9d1d3;
+}
+
+.text {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.15px;
+  margin: 0;
+}
+
+.deleteCategoryButton {
+  display: none;
+  background-color: transparent;
+  background-image: url('../../images/delete-icon.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.deleteCategoryButton:focus {
+  background-image: url('../../images/delete-icon-focus.svg');
+}
+
+.item:hover {
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.item:hover > .deleteCategoryButton {
+  display: block;
+  transition: opacity 0.3s linear;
+  opacity: 0.8;
+}
+
+@media screen and (min-width: 768px) {
+  .item {
+    width: 160px;
+    padding: 10px;
+    border: none;
+    margin: 0;
+  }
+}

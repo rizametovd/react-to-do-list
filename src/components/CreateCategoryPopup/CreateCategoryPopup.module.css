@@ -1,0 +1,186 @@
+.popup {
+  visibility: hidden;
+  opacity: 0;
+  background-color: transparent;
+  transition: visibility 0s, opacity 0.3s linear;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  min-width: 280px;
+  max-width: 400px;
+}
+
+.popupIsOpen {
+  max-width: 400px;
+  visibility: visible;
+  opacity: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  z-index: 1;
+  opacity: 1;
+}
+
+.container {
+  width: 100%;
+  padding: 18px;
+  box-sizing: border-box;
+  border-radius: 18px;
+  border: 1px solid #f2f2f2;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.closeButton {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-image: url('../../images/close-icon.svg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  border: none;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  outline: none;
+}
+
+.closeButton:focus {
+  background-image: url('../../images/close-icon-focus.svg');
+}
+
+.closeButton:hover {
+  transition: opacity 0.3s linear;
+  opacity: 0.7;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  padding: 10px 15px;
+  border: 1px solid #efefef;
+  border-radius: 4px;
+  outline: none;
+}
+
+.input:focus {
+  box-shadow: 0 0 8px rgba(77, 213, 153, 0.4);
+}
+
+.input::placeholder {
+  color: #b4b4b4;
+  letter-spacing: 0.15px;
+}
+
+.validationError {
+  font-weight: 400;
+  font-size: 12px;
+  padding: 10px 0;
+  color: #ff6464;
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  list-style: none;
+  padding: 0;
+}
+
+.listItem {
+  display: flex;
+}
+
+.colorButton {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.colorButton:focus {
+  border: 2px solid #026ad1;
+}
+
+.colorButton:hover {
+  transition: opacity 0.2s linear;
+  opacity: 0.8;
+}
+
+.colorGreen {
+  background-color: #42b883;
+}
+
+.colorBlue {
+  background-color: #64c4ed;
+}
+
+.colorPink {
+  background-color: #ffbbcc;
+}
+
+.colorLightGreen {
+  background-color: #b6e6bd;
+}
+
+.colorGray {
+  background-color: tomato;
+}
+
+.colorPurple {
+  background-color: #c355f5;
+}
+
+.colorRed {
+  background-color: #ff6464;
+}
+
+.colorBlack {
+  background-color: #09011a;
+}
+
+.addColorButton {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.15px;
+  color: #ffffff;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-color: #4dd599;
+  cursor: pointer;
+  padding: 10px 0;
+  outline: none;
+}
+
+.addColorButton:hover {
+  transition: opacity 0.3s linear;
+  opacity: 0.7;
+}
+
+.addColorButton:focus {
+  border: 2px solid #ff6464;
+}
+
+@media screen and (min-width: 768px) {
+  .popup {
+    position: relative;
+    top: 7%;
+    left: 100%;
+  }
+}
