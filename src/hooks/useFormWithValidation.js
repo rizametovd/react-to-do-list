@@ -8,18 +8,14 @@ export function useFormWithValidation() {
   function handleChange(e) {
     const input = e.target;
     const value = input.value;
-    const inputName = input.name;
+    const name = input.name;
 
-    setInputValues({ ...inputValues, [inputName]: value });
+    setInputValues({ ...inputValues, [name]: value });
     setIsValid(input.closest('form').checkValidity());
 
-    if (inputName === 'categoryName') {
-      if (!isValid) {
-        setErrors({ ...errors, [inputName]: 'Минимальная длина названия категории 4 символа' });
-      } else {
-        setErrors({ ...errors, [inputName]: '' });
-      }
-    }
+    value.length < 2
+      ? setErrors({ ...errors, [name]: 'Минимальная длина 2 символа' })
+      : setErrors({ ...errors, [name]: '' });
   }
 
   return { inputValues, handleChange, errors, isValid };

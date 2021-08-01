@@ -88,7 +88,8 @@
 .validationError {
   font-weight: 400;
   font-size: 12px;
-  padding: 10px 0;
+  padding: 10px 0 0;
+  height: 14px;
   color: #ff6464;
 }
 
@@ -104,6 +105,7 @@
   cursor: pointer;
   padding: 10px 0;
   outline: none;
+  transition: background-color 0.3s linear;
 }
 
 .submitButton:hover {
@@ -116,6 +118,7 @@
 }
 
 .buttonDisabled {
+  transition: background-color 0.3s linear;
   background-color: #c9d1d3;
 }
 

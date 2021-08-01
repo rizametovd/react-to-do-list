@@ -14,7 +14,7 @@ function CreateCategoryPopup({
   const { inputValues, handleChange, errors, isValid } = useFormWithValidation();
 
   // console.log('isValid:', isValid);
-  // console.log('inputValues:', inputValues);
+  
   // console.log('errors:', errors);
 
 
@@ -22,7 +22,7 @@ function CreateCategoryPopup({
     e.preventDefault();
     createCategory({
       id: uuid(),
-      categoryName: inputValues.categoryName,
+      categoryName: inputValues.name,
       color: inputValues.color,
     });
 
@@ -40,16 +40,18 @@ function CreateCategoryPopup({
         ></button>
         <form className={styles.form} onSubmit={handleSubmit} noValidate>
           <input
-            name='categoryName'
+            name='name'
             type='text'
             className={styles.input}
             placeholder='Название категории'
-            minLength='4'
+            minLength='2'
             onChange={handleChange}
+            value={inputValues.name || ''}
+            
             required
           />
 
-          <span className={styles.validationError}>{errors.categoryName}</span>
+          <span className={styles.validationError}>{errors.name || ''}</span>
 
           <ColorList onChange={handleChange} id={id} disabled={!isValid} />
           <button
