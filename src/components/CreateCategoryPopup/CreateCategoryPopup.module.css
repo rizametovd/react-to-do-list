@@ -92,69 +92,7 @@
   color: #ff6464;
 }
 
-.list {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  list-style: none;
-  padding: 0;
-}
-
-.listItem {
-  display: flex;
-}
-
-.colorButton {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  outline: none;
-}
-
-.colorButton:focus {
-  border: 2px solid #026ad1;
-}
-
-.colorButton:hover {
-  transition: opacity 0.2s linear;
-  opacity: 0.8;
-}
-
-.colorGreen {
-  background-color: #42b883;
-}
-
-.colorBlue {
-  background-color: #64c4ed;
-}
-
-.colorPink {
-  background-color: #ffbbcc;
-}
-
-.colorLightGreen {
-  background-color: #b6e6bd;
-}
-
-.colorGray {
-  background-color: tomato;
-}
-
-.colorPurple {
-  background-color: #c355f5;
-}
-
-.colorRed {
-  background-color: #ff6464;
-}
-
-.colorBlack {
-  background-color: #09011a;
-}
-
-.addColorButton {
+.submitButton {
   font-weight: 600;
   font-size: 14px;
   line-height: 17px;
@@ -168,19 +106,23 @@
   outline: none;
 }
 
-.addColorButton:hover {
+.submitButton:hover {
   transition: opacity 0.3s linear;
   opacity: 0.7;
 }
 
-.addColorButton:focus {
+.submitButton:focus {
   border: 2px solid #ff6464;
+}
+
+.buttonDisabled {
+  background-color: #c9d1d3;
 }
 
 @media screen and (min-width: 768px) {
   .popup {
     position: relative;
-    top: 7%;
+    top: 14%;
     left: 100%;
   }
 }

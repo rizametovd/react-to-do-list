@@ -3,6 +3,7 @@
 .page {
     min-width: 320px;
     max-width: 1024px;
+    height: 100vh;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Lato', Arial, sans-serif;
@@ -16,5 +17,6 @@
 @media screen and (min-width: 768px) {
     .page {
         flex-direction: row;
+        /* height: 100vh; */
     }
 }

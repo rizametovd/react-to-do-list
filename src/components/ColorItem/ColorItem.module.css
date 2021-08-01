@@ -1,0 +1,89 @@
+
+.radio {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+
+
+.radio + label {
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+
+.radioDisabled + label::before {
+  background-color: #c9d1d3;
+}
+
+.radio + label::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 2px solid transparent;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.radio:focus +label::before {
+    border: 2px solid #026ad1;
+}
+
+.green + label::before {
+  background-color: #42b883;
+}
+
+.blue + label::before {
+  background-color: #64c4ed;
+}
+
+.pink + label::before {
+  background-color: #ffbbcc;
+}
+
+.gray + label::before {
+  background-color: #c9dcd3;
+}
+
+.purple + label::before {
+  background-color: #c355f5;
+}
+
+.red + label::before {
+  background-color: #ff6464;
+}
+
+.lightGreen + label::before {
+  background-color: #b6e6bd;
+}
+
+.black + label::before {
+  background-color: #09011a;
+}
+
+.radio:checked + label::before {
+    border: 2px solid #0b76ef;
+    background-image: url('../../images/task-done-icon-white.svg');
+  }
+
+
+
+/* .radio:not(:disabled):not(:checked)+label:hover::before {
+    transition: opacity 0.3s linear;
+    opacity: 0.7;
+  }
+
+.radio:not(:disabled):active + label::before {
+  border-color: #026ad1;
+} */
+
+
+
+
+

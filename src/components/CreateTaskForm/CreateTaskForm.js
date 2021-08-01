@@ -1,22 +1,35 @@
-import createTaskFormStyles from './CreateTaskForm.module.css';
+import { useState } from 'react';
+import styles from './CreateTaskForm.module.css';
+import uuid from 'react-uuid';
 
-function CreateTaskForm({ cancelCreateTask, createTask }) {
+function CreateTaskForm({ cancelCreateTask, onSaveCreateTask, categoryId }) {
+  const [inputValue, setInputValue] = useState('')
+
+  function handleInput(e) {
+    setInputValue(e.target.value)
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
-    createTask();
+    onSaveCreateTask({
+      catId: categoryId,
+      task:inputValue,
+      isDone: false,
+      id: uuid(),
+    });
   }
 
   return (
-    <div className={createTaskFormStyles.container}>
+    <div className={styles.container}>
       <form onSubmit={handleSubmit}>
-        <input className={createTaskFormStyles.input} placeholder='Текст задачи' required />
-        <span className={createTaskFormStyles.validationError}>Текст ошибки валидации</span>
-        <div className={createTaskFormStyles.buttonsContainer}>
-          <button className={createTaskFormStyles.saveButton} type='submit'>
+        <input className={styles.input} placeholder='Текст задачи' onChange={handleInput} required />
+        <span className={styles.validationError}>Текст ошибки валидации</span>
+        <div className={styles.buttonsContainer}>
+          <button className={styles.saveButton} type='submit'>
             Добавить задачу
           </button>
           <button
-            className={createTaskFormStyles.cancelButton}
+            className={styles.cancelButton}
             onClick={cancelCreateTask}
             type='button'
           >

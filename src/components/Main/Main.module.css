@@ -25,12 +25,14 @@
   font-size: 32px;
   line-height: 39px;
   color: #c9d1d3;
+  text-align: center;
 }
 
 @media screen and (min-width: 768px) {
   .main {
     width: calc(100% - 200px);
     display: flex;
+    /* justify-content: center; */
     flex-direction: column;
     padding: 40px 50px;
   }
