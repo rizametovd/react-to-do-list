@@ -1,19 +1,15 @@
-import { useState } from 'react';
 import styles from './CreateTaskForm.module.css';
 import uuid from 'react-uuid';
+import { useFormWithValidation } from '../../hooks/useFormWithValidation';
 
 function CreateTaskForm({ cancelCreateTask, onSaveCreateTask, categoryId }) {
-  const [inputValue, setInputValue] = useState('')
-
-  function handleInput(e) {
-    setInputValue(e.target.value)
-  }
+  const { inputValues, handleChange, errors, isValid } = useFormWithValidation();
 
   function handleSubmit(e) {
     e.preventDefault();
     onSaveCreateTask({
       catId: categoryId,
-      task:inputValue,
+      task: inputValues.task,
       isDone: false,
       id: uuid(),
     });
@@ -22,17 +18,24 @@ function CreateTaskForm({ cancelCreateTask, onSaveCreateTask, categoryId }) {
   return (
     <div className={styles.container}>
       <form onSubmit={handleSubmit}>
-        <input className={styles.input} placeholder='Текст задачи' onChange={handleInput} required />
-        <span className={styles.validationError}>Текст ошибки валидации</span>
+        <input
+          className={styles.input}
+          name='task'
+          placeholder='Текст задачи'
+          onChange={handleChange}
+          minLength='5'
+          required
+        />
+        <span className={styles.validationError}>{errors.task || ''}</span>
         <div className={styles.buttonsContainer}>
-          <button className={styles.saveButton} type='submit'>
+          <button
+            className={`${styles.saveButton} ${!isValid && styles.buttonDisabled}`}
+            type='submit'
+            disabled={!isValid}
+          >
             Добавить задачу
           </button>
-          <button
-            className={styles.cancelButton}
-            onClick={cancelCreateTask}
-            type='button'
-          >
+          <button className={styles.cancelButton} onClick={cancelCreateTask} type='button'>
             Отмена
           </button>
         </div>

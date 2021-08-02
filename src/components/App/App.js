@@ -10,10 +10,6 @@ function App() {
   const [categories, setCategories] = useState([]);
   const [tasks, setTasks] = useState([]);
 
-  // console.log('popup:', isCreateCategoryPopupOpen);
-  // console.log('categories:', categories);
-  // console.log('tasks:', tasks);
-
   function createTask(inputValue) {
     setTasks((prevState) => [...prevState, inputValue]);
   }
@@ -24,7 +20,7 @@ function App() {
 
   function markTaskDone(data) {
     console.log(data);
-    const { id, checked } = data;
+    const { id, } = data;
     setTasks((prev) =>
       prev.map((item) => (item.id === id ? { ...item, isDone: !item.isDone } : item))
     );

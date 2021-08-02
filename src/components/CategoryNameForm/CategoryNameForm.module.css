@@ -1,8 +1,20 @@
 .form {
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  padding: 0;
+  /* box-sizing: border-box; */
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  /* width: calc(100% - 250px); */
+  width: 100%;
+  /* box-sizing: border-box; */
+  /* padding-right: 20px; */
 }
 
 .input {
@@ -10,9 +22,8 @@
   border: 1px solid #efefef;
   border-radius: 4px;
   outline: none;
-  margin-bottom: 20px;
   box-sizing: border-box;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .input:focus {
@@ -26,6 +37,7 @@
 }
 
 .saveButton {
+  width: 100%;
   font-weight: 600;
   font-size: 14px;
   line-height: 17px;
@@ -37,6 +49,8 @@
   border-radius: 4px;
   cursor: pointer;
   outline: none;
+  margin-right: 20px;
+  transition: background-color 0.5s linear;
 }
 
 .saveButton:focus:not(:active),
@@ -50,6 +64,7 @@
 }
 
 .cancelButton {
+  width: 100%;
   font-weight: 600;
   font-size: 14px;
   line-height: 17px;
@@ -69,11 +84,23 @@
   opacity: 0.8;
 }
 
+.buttonDisabled {
+  transition: all 0.5s linear;
+  background-color: #fff;
+  border: 2px solid #c9d1d3;
+  color: #c9d1d3;
+  cursor: default;
+}
+
+.buttonDisabled:hover {
+  opacity: 1;
+}
+
 .validationError {
-  display: block;
   font-weight: 400;
   font-size: 12px;
-  padding: 10px 0;
+  height: 14px;
+  padding: 10px 0 20px;
   color: #ff6464;
 }
 
@@ -81,15 +108,27 @@
   .form {
     flex-direction: row;
     justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .inputContainer {
+    width: calc(100% - 250px);
+
+    box-sizing: border-box;
+    padding-right: 20px;
   }
 
   .input {
-    margin-right: 20px;
-    width: calc(100% - 250px);
-    margin-bottom: 0;
+    /* margin-right: 20px; */
+    width: 100%;
+    /* margin-bottom: 0; */
   }
 
   .buttonsContainer {
     width: 250px;
+  }
+
+  .validationError {
+    padding: 20px 0 0;
   }
 }

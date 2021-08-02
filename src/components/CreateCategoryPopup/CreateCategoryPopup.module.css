@@ -91,6 +91,7 @@
   padding: 10px 0 0;
   height: 14px;
   color: #ff6464;
+  opacity: 0;
 }
 
 .submitButton {

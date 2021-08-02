@@ -1,8 +1,8 @@
 import styles from './CreateCategoryPopup.module.css';
-import { useState } from 'react';
 import uuid from 'react-uuid';
 import { useFormWithValidation } from '../../hooks/useFormWithValidation';
 import ColorList from '../ColorList/ColorList';
+import { useEffect } from 'react';
 
 function CreateCategoryPopup({
   isCreateCategoryPopupOpen,
@@ -10,13 +10,11 @@ function CreateCategoryPopup({
   createCategory,
   id,
 }) {
+  const { inputValues, handleChange, errors, isValid, resetForm } = useFormWithValidation();
 
-  const { inputValues, handleChange, errors, isValid } = useFormWithValidation();
-
-  // console.log('isValid:', isValid);
-  
-  // console.log('errors:', errors);
-
+  useEffect(() => {
+    resetForm();
+  }, [isCreateCategoryPopupOpen, resetForm]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -47,7 +45,6 @@ function CreateCategoryPopup({
             minLength='2'
             onChange={handleChange}
             value={inputValues.name || ''}
-            
             required
           />
 
@@ -61,7 +58,6 @@ function CreateCategoryPopup({
           >
             Добавить
           </button>
-
         </form>
       </div>
     </div>

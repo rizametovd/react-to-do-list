@@ -1,25 +1,26 @@
-import { useState } from 'react';
 import styles from './CategoryNameForm.module.css';
+import { useFormWithValidation } from '../../hooks/useFormWithValidation';
 
 function CategoryNameForm({ onSaveEditCategoryName, onCancelEditCategoryName }) {
-  const [inputValues, setInputValues] = useState('');
-
-  function handleInput(e) {
-    setInputValues(e.target.value);
-  }
+  const { inputValues, handleChange, errors, isValid } = useFormWithValidation();
+  console.log(errors);
 
   function handleSubmit(e) {
     e.preventDefault();
-    onSaveEditCategoryName(inputValues);
+    onSaveEditCategoryName(inputValues.editCategoryName);
   }
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
-      <input className={styles.input} onChange={handleInput} />
+    <form className={styles.form} onSubmit={handleSubmit} noValidate>
+      <div className={styles.inputContainer}>
+        <input className={styles.input} onChange={handleChange} name='editCategoryName' minLength='5' required/>
+        <span className={styles.validationError}>{errors.editCategoryName}</span>
+      </div>
+
       <div className={styles.buttonsContainer}>
-        <button className={styles.saveButton} type='submit'>
+        <button className={`${styles.saveButton} ${!isValid && styles.buttonDisabled}`} type='submit'>
           Сохранить
         </button>
-        <button className={styles.cancelButton} type='button' onClick={onCancelEditCategoryName}>
+        <button className={styles.cancelButton} type='button' onClick={onCancelEditCategoryName} disabled={!isValid}>
           Отмена
         </button>
       </div>
