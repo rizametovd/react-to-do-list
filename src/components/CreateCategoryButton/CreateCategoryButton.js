@@ -1,10 +1,10 @@
-import createCategoryButtonStyles from './CreateCategoryButton.module.css';
+import styles from './styles.module.css';
 
 function CreateCategoryButton({ openCreateCategoryPopup }) {
   return (
-    <div className={createCategoryButtonStyles.container}>
+    <div className={styles.container}>
       <button
-        className={createCategoryButtonStyles.button}
+        className={styles.button}
         type='button'
         onClick={openCreateCategoryPopup}
       >

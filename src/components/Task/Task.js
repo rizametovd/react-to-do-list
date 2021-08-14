@@ -1,15 +1,29 @@
-import taskStyles from './Task.module.css';
+import styles from './styles.module.css';
 
-function Task({ id, children }) {
+function Task({ id, children, removeTask, markTaskDone, isDone }) {
+  function handleRemoveTask() {
+    removeTask(id);
+  }
+
+  function handleRadioInput() {
+    markTaskDone({ id });
+  }
+
   return (
-    <li className={taskStyles.item}>
-      <div className={taskStyles.itemContainer}>
-        <input className={taskStyles.checkbox} type='checkbox' id={id} />
-        <label className={taskStyles.itemText} htmlFor={id}>
+    <li className={styles.item}>
+      <div className={styles.itemContainer}>
+        <input
+          className={styles.checkbox}
+          type='checkbox'
+          id={id}
+          checked={isDone}
+          onChange={handleRadioInput}
+        />
+        <label className={styles.itemText} htmlFor={id}>
           {children}
         </label>
       </div>
-      <button className={taskStyles.deleteTaskButton} type='button' />
+      <button className={styles.deleteTaskButton} type='button' onClick={handleRemoveTask} />
     </li>
   );
 }

@@ -1,42 +1,47 @@
-import hamburgerMenuStyles from './HamburgerMenu.module.css';
+import styles from './styles.module.css';
 import CategoryItem from '../CategoryItem/CategoryItem';
 import CreateCategoryButton from '../CreateCategoryButton/CreateCategoryButton';
 import CreateCategoryPopup from '../CreateCategoryPopup/CreateCategoryPopup';
+import { useState } from 'react';
 
 function HamburgerMenu({
-  handleHamburgerMenu,
-  isHamburgerMenuOpen,
+  createCategory,
   openCreateCategoryPopup,
   isCreateCategoryPopupOpen,
   closeCreateCategoryPopup,
+  categories,
 }) {
+  const [isHamburgerMenuOpen, setIsHamburgerMenuOpen] = useState(false);
+
+  function handleHamburgerMenu() {
+    setIsHamburgerMenuOpen((prevState) => !prevState);
+  }
+
   return (
-    <div className={hamburgerMenuStyles.container}>
+    <div className={styles.container}>
       <button
-        className={`${isHamburgerMenuOpen && hamburgerMenuStyles.closeMenuButton} ${
-          hamburgerMenuStyles.button
-        }`}
+        className={`${isHamburgerMenuOpen && styles.closeMenuButton} ${styles.button}`}
         type='button'
         onClick={handleHamburgerMenu}
         aria-label='Открыть или закрыть меню'
       />
 
       <div
-        className={`${isHamburgerMenuOpen && hamburgerMenuStyles.categoryContainerActive} ${
-          hamburgerMenuStyles.categoryContainer
+        className={`${isHamburgerMenuOpen && styles.categoryContainerActive} ${
+          styles.categoryContainer
         }`}
       >
-        <ul className={hamburgerMenuStyles.list}>
-          <CategoryItem text={'Покупки'} taskColor={'green'} />
-          <CategoryItem text={'Фронтенд'} taskColor={'blue'} />
-          <CategoryItem text={'Фильмы'} taskColor={'pink'} />
-          <CategoryItem text={'Книги'} taskColor={'lightgreen'} />
-          <CategoryItem text={'Личное'} taskColor={'gray'} />
+        <ul className={styles.list}>
+          {categories.map(({ categoryName, id, color }) => (
+            <CategoryItem text={categoryName} key={id} taskColor={color} />
+          ))}
         </ul>
         <CreateCategoryButton openCreateCategoryPopup={openCreateCategoryPopup} />
         <CreateCategoryPopup
           isCreateCategoryPopupOpen={isCreateCategoryPopupOpen}
           closeCreateCategoryPopup={closeCreateCategoryPopup}
+          createCategory={createCategory}
+          id={'mobile'}
         />
       </div>
     </div>

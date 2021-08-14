@@ -3,6 +3,7 @@
 .page {
     min-width: 320px;
     max-width: 1024px;
+    min-height: 100vh;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Lato', Arial, sans-serif;

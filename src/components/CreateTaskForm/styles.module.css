@@ -25,7 +25,8 @@
   display: block;
   font-weight: 400;
   font-size: 12px;
-  padding: 10px 0;
+  padding: 10px 0 0;
+  height: 14px;
   color: #ff6464;
 }
 
@@ -48,6 +49,7 @@
   cursor: pointer;
   border: 2px solid transparent;
   outline: none;
+  transition: background-color 0.5s linear;
 }
 
 .saveButton:focus:not(:active),
@@ -58,6 +60,18 @@
 .saveButton:hover {
   transition: opacity 0.2s linear;
   opacity: 0.7;
+}
+
+.buttonDisabled {
+  transition: all 0.5s linear;
+  background-color: #fff;
+  border: 2px solid #c9d1d3;
+  color: #c9d1d3;
+  cursor: default;
+}
+
+.buttonDisabled:hover {
+  opacity: 1;
 }
 
 .cancelButton {

@@ -1,45 +1,55 @@
-import { useState } from 'react';
 import '../../vendor/normalize.css';
+import { useState } from 'react';
 import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
 import Main from '../Main/Main';
 import Sidebar from '../Sidebar/Sidebar';
-import appStyles from './App.module.css';
+import styles from './styles.module.css';
 
 function App() {
   const [isCreateCategoryPopupOpen, setIsCreateCategoryPopupOpen] = useState(false);
-  const [isCreateTaskFormOpen, setIsCreateTaskFormOpen] = useState(false);
-  const [isCategoryNameFormOpen, setIsCategoryNameFormOpen] = useState(false);
-  const [isHamburgerMenuOpen, setIsHamburgerMenuOpen] = useState(false);
+  const [categories, setCategories] = useState([]);
+  const [tasks, setTasks] = useState([]);
 
-  function handleHamburgerMenu() {
-    setIsHamburgerMenuOpen((prevState) => !prevState);
+  function createTask(inputValue) {
+    setTasks((prevState) => [...prevState, inputValue]);
   }
 
-  function openCategoryNameForm() {
-    setIsCategoryNameFormOpen(true);
+  function removeTask(id) {
+    setTasks((prevState) => prevState.filter((el) => el.id !== id));
   }
 
-  function onSaveEditCategoryName() {
-    setIsCategoryNameFormOpen(false);
+  function markTaskDone(data) {
+    console.log(data);
+    const { id, } = data;
+    setTasks((prev) =>
+      prev.map((item) => (item.id === id ? { ...item, isDone: !item.isDone } : item))
+    );
   }
 
-  function onCancelEditCategoryName() {
-    setIsCategoryNameFormOpen(false);
+  function createCategory(categoryData) {
+    setCategories((prevState) => [...prevState, categoryData]);
   }
 
-  function openCreateTaskForm() {
-    setIsCreateTaskFormOpen(true);
+  function removeCategory(id) {
+    setCategories((prevState) => prevState.filter((el) => el.id !== id));
   }
 
-  function createTask() {
-    setIsCreateTaskFormOpen(false);
+  function changeCategoryName(inputValueData) {
+    const { categoryId, inputValue } = inputValueData;
+
+    setCategories((prev) =>
+      prev.map((toDoItem) =>
+        toDoItem.id === categoryId
+          ? {
+              ...toDoItem,
+              categoryName: inputValue,
+            }
+          : toDoItem
+      )
+    );
   }
 
-  function cancelCreateTask() {
-    setIsCreateTaskFormOpen(false);
-  }
-
-  function openCreateCategoryPopup() {
+  function openCreateCategoryPopup(e) {
     setIsCreateCategoryPopupOpen(true);
   }
 
@@ -48,32 +58,31 @@ function App() {
   }
 
   return (
-    <div className={appStyles.page}>
+    <div className={styles.page}>
       <HamburgerMenu
-        handleHamburgerMenu={handleHamburgerMenu}
-        isHamburgerMenuOpen={isHamburgerMenuOpen}
         openCreateCategoryPopup={openCreateCategoryPopup}
-        isCreateCategoryPopupOpen={isCreateCategoryPopupOpen}
         closeCreateCategoryPopup={closePopup}
+        isCreateCategoryPopupOpen={isCreateCategoryPopupOpen}
+        createCategory={createCategory}
+        categories={categories}
       />
       <Sidebar
-        isCreateCategoryPopupOpen={isCreateCategoryPopupOpen}
         openCreateCategoryPopup={openCreateCategoryPopup}
         closeCreateCategoryPopup={closePopup}
+        isCreateCategoryPopupOpen={isCreateCategoryPopupOpen}
+        createCategory={createCategory}
+        removeCategory={removeCategory}
+        categories={categories}
       />
       <Main
-        isCreateTaskFormOpen={isCreateTaskFormOpen}
-        openCreateTaskForm={openCreateTaskForm}
+        categories={categories}
         createTask={createTask}
-        cancelCreateTask={cancelCreateTask}
-        openCategoryNameForm={openCategoryNameForm}
-        isCategoryNameFormOpen={isCategoryNameFormOpen}
-        onSaveEditCategoryName={onSaveEditCategoryName}
-        onCancelEditCategoryName={onCancelEditCategoryName}
+        removeTask={removeTask}
+        markTaskDone={markTaskDone}
+        tasks={tasks}
+        changeCategoryName={changeCategoryName}
       />
     </div>
-
-
   );
 }
 

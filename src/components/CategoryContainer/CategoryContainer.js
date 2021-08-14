@@ -1,33 +1,57 @@
-import categoryContainerStyles from './CategoryContainer.module.css';
+import styles from './styles.module.css';
 import CreateTaskForm from '../CreateTaskForm/CreateTaskForm';
 import CategoryNameForm from '../CategoryNameForm/CategoryNameForm';
+import { useState } from 'react';
+import Task from '../Task/Task';
 
 function CategoryContainer({
   title,
   titleColor,
-  children,
-  isCreateTaskFormOpen,
-  openCreateTaskForm,
   createTask,
-  cancelCreateTask,
-  openCategoryNameForm,
-  isCategoryNameFormOpen,
-  onSaveEditCategoryName,
-  onCancelEditCategoryName,
+  tasks,
+  categoryId,
+  removeTask,
+  changeCategoryName,
+  markTaskDone,
 }) {
+  const [isCreateTaskFormOpen, setIsCreateTaskFormOpen] = useState(false);
+  const [isCategoryNameFormOpen, setIsCategoryNameFormOpen] = useState(false);
+
+  function onSaveCreateTask(data) {
+    createTask(data);
+    setIsCreateTaskFormOpen(false);
+  }
+
+  function openCreateTaskForm() {
+    setIsCreateTaskFormOpen(true);
+  }
+
+  function cancelCreateTask() {
+    setIsCreateTaskFormOpen(false);
+  }
+
+  function openCategoryNameForm() {
+    setIsCategoryNameFormOpen(true);
+  }
+
+  function onSaveEditCategoryName(inputValue) {
+    changeCategoryName({ inputValue, categoryId });
+    setIsCategoryNameFormOpen(false);
+  }
+
+  function onCancelEditCategoryName() {
+    setIsCategoryNameFormOpen(false);
+  }
+
   return (
-    <div className={categoryContainerStyles.container}>
-      <div className={categoryContainerStyles.titleContainer}>
+    <div className={styles.container}>
+      <div className={styles.titleContainer}>
         {!isCategoryNameFormOpen && (
-          <div className={categoryContainerStyles.categoryName}>
-            <h2
-              className={`${categoryContainerStyles.categoryTitle} ${categoryContainerStyles[titleColor]}`}
-            >
-              {title}
-            </h2>
+          <div className={styles.categoryName}>
+            <h2 className={`${styles.categoryTitle} ${styles[titleColor]}`}>{title}</h2>
 
             <button
-              className={categoryContainerStyles.editButton}
+              className={styles.editButton}
               type='button'
               onClick={openCategoryNameForm}
               aria-label='Изменить название категории'
@@ -43,19 +67,32 @@ function CategoryContainer({
         )}
       </div>
 
-      <ul className={categoryContainerStyles.list}>{children}</ul>
+      <ul className={styles.list}>
+        {tasks.map(({ task, id, isDone, catId }) => {
+          if (catId === categoryId) {
+            return (
+              <Task key={id} id={id} removeTask={removeTask} markTaskDone={markTaskDone} isDone={isDone}>
+                {task}
+              </Task>
+            );
+          }
+
+          return '';
+        })}
+      </ul>
 
       {!isCreateTaskFormOpen && (
-        <button
-          type='button'
-          className={categoryContainerStyles.createTaskButton}
-          onClick={openCreateTaskForm}
-        >
+        <button type='button' className={styles.createTaskButton} onClick={openCreateTaskForm}>
           Новая задача
         </button>
       )}
       {isCreateTaskFormOpen && (
-        <CreateTaskForm cancelCreateTask={cancelCreateTask} createTask={createTask} />
+        <CreateTaskForm
+          cancelCreateTask={cancelCreateTask}
+          createTask={createTask}
+          onSaveCreateTask={onSaveCreateTask}
+          categoryId={categoryId}
+        />
       )}
     </div>
   );

@@ -1,14 +1,20 @@
-import categoryItemStyles from './CategoryItem.module.css';
+import styles from './styles.module.css';
 
-function CategoryItem({ text, taskColor }) {
+function CategoryItem({ text, taskColor, id, removeCategory }) {
+
+
+  function handleRemoveCategory() {
+    removeCategory(id)
+  }
+
   return (
-    <li className={categoryItemStyles.item}>
-      <div className={categoryItemStyles.itemContainer}>
-        <span className={`${categoryItemStyles.task} ${categoryItemStyles[taskColor]}`}></span>
-        <p className={categoryItemStyles.text}>{text}</p>
+    <li className={styles.item}>
+      <div className={styles.itemContainer}>
+        <span className={`${styles.task} ${styles[taskColor]}`}></span>
+        <p className={styles.text}>{text}</p>
       </div>
 
-      <button className={categoryItemStyles.deleteCategoryButton} aria-label='Удалить категорию'></button>
+      <button className={styles.deleteCategoryButton} aria-label='Удалить категорию' onClick={handleRemoveCategory}></button>
     </li>
   );
 }
