@@ -1,11 +1,8 @@
-
 .radio {
   position: absolute;
   z-index: -1;
   opacity: 0;
 }
-
-
 
 .radio + label {
   display: flex;
@@ -16,6 +13,7 @@
 .radioDisabled + label::before {
   transition: background-color 0.3s linear;
   background-color: #c9d1d3;
+  border: none;
 }
 
 .radio + label::before {
@@ -32,8 +30,8 @@
   transition: background-color 0.6s linear;
 }
 
-.radio:focus +label::before {
-    border: 2px solid #026ad1;
+.radio:focus + label::before {
+  border: 2px solid #026ad1;
 }
 
 .green + label::before {
@@ -68,23 +66,7 @@
   background-color: #09011a;
 }
 
-.radio:checked + label::before {
-    border: 2px solid #0b76ef;
-    background-image: url('../../images/task-done-icon-white.svg');
-  }
-
-
-
-/* .radio:not(:disabled):not(:checked)+label:hover::before {
-    transition: opacity 0.3s linear;
-    opacity: 0.7;
-  }
-
-.radio:not(:disabled):active + label::before {
-  border-color: #026ad1;
-} */
-
-
-
-
-
+.radio:checked:not(:disabled) + label::before {
+  border: 2px solid #0b76ef;
+  background-image: url('../../images/task-done-icon-white.svg');
+}

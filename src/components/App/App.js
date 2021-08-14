@@ -3,7 +3,7 @@ import { useState } from 'react';
 import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
 import Main from '../Main/Main';
 import Sidebar from '../Sidebar/Sidebar';
-import styles from './App.module.css';
+import styles from './styles.module.css';
 
 function App() {
   const [isCreateCategoryPopupOpen, setIsCreateCategoryPopupOpen] = useState(false);

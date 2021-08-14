@@ -1,4 +1,4 @@
-import styles from './CreateCategoryButton.module.css';
+import styles from './styles.module.css';
 
 function CreateCategoryButton({ openCreateCategoryPopup }) {
   return (

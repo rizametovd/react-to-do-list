@@ -1,4 +1,4 @@
-import styles from './Sidebar.module.css';
+import styles from './styles.module.css';
 import CreateCategoryPopup from '../CreateCategoryPopup/CreateCategoryPopup';
 import CreateCategoryButton from '../CreateCategoryButton/CreateCategoryButton';
 import CategoryItem from '../CategoryItem/CategoryItem';
@@ -20,7 +20,7 @@ function Sidebar({
 
           <ul className={styles.list}>
             {categories.map(({ categoryName, color, id }) => (
-              <CategoryItem text={categoryName} taskColor={color} key={id} id={id} removeCategory={removeCategory} />
+              <CategoryItem text={categoryName} taskColor={color || 'black'} key={id} id={id} removeCategory={removeCategory} />
             ))}
           </ul>
         </>

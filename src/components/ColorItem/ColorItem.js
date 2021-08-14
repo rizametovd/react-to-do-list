@@ -1,6 +1,7 @@
-import styles from './ColorItem.module.css';
+import styles from './styles.module.css';
 
-function ColorItem({ color, onChange, id, disabled }) {
+function ColorItem({ color, onChange, id, disabled, selectedColor }) {
+
   return (
     <li>
       <input
@@ -11,6 +12,7 @@ function ColorItem({ color, onChange, id, disabled }) {
         value={color}
         onChange={onChange}
         disabled={disabled}
+        checked={color === selectedColor}
       />
       <label htmlFor={id} />
     </li>

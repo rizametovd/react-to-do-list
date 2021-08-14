@@ -1,4 +1,4 @@
-import styles from './CreateCategoryPopup.module.css';
+import styles from './styles.module.css';
 import uuid from 'react-uuid';
 import { useFormWithValidation } from '../../hooks/useFormWithValidation';
 import ColorList from '../ColorList/ColorList';
@@ -11,6 +11,8 @@ function CreateCategoryPopup({
   id,
 }) {
   const { inputValues, handleChange, errors, isValid, resetForm } = useFormWithValidation();
+
+  console.log('inputValues:', inputValues)
 
   useEffect(() => {
     resetForm();
@@ -50,7 +52,7 @@ function CreateCategoryPopup({
 
           <span className={styles.validationError}>{errors.name || ''}</span>
 
-          <ColorList onChange={handleChange} id={id} disabled={!isValid} />
+          <ColorList onChange={handleChange} id={id} disabled={!isValid} selectedColor={inputValues.color} />
           <button
             className={`${styles.submitButton} ${!isValid && styles.buttonDisabled}`}
             type='submit'

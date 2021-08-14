@@ -1,5 +1,5 @@
 import CategoryContainer from '../CategoryContainer/CategoryContainer';
-import styles from './Main.module.css';
+import styles from './styles.module.css';
 
 function Main({
   isCreateTaskFormOpen,

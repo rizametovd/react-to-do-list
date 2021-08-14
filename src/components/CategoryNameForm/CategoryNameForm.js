@@ -1,4 +1,4 @@
-import styles from './CategoryNameForm.module.css';
+import styles from './styles.module.css';
 import { useFormWithValidation } from '../../hooks/useFormWithValidation';
 
 function CategoryNameForm({ onSaveEditCategoryName, onCancelEditCategoryName }) {

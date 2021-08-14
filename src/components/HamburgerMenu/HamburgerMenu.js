@@ -1,4 +1,4 @@
-import styles from './HamburgerMenu.module.css';
+import styles from './styles.module.css';
 import CategoryItem from '../CategoryItem/CategoryItem';
 import CreateCategoryButton from '../CreateCategoryButton/CreateCategoryButton';
 import CreateCategoryPopup from '../CreateCategoryPopup/CreateCategoryPopup';

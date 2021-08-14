@@ -1,4 +1,4 @@
-import styles from './CategoryContainer.module.css';
+import styles from './styles.module.css';
 import CreateTaskForm from '../CreateTaskForm/CreateTaskForm';
 import CategoryNameForm from '../CategoryNameForm/CategoryNameForm';
 import { useState } from 'react';
